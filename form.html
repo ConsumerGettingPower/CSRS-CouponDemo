@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>填寫表單</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            background-image: url('2.jpg'); /* 新增背景圖片 */
+            background-size: cover; /* 確保圖片覆蓋整個背景 */
+            background-position: center; /* 圖片置中 */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgba(128, 128, 128, 0.5); /* 半透明灰色背景 */
+            backdrop-filter: blur(10px); /* 背景模糊效果 */
+            -webkit-backdrop-filter: blur(10px); /* 背景模糊效果 for Safari */
+            width: 100vw;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            width: 85%;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 2em;
+            color: #FFF;
+            font-weight: bold;
+        }
+        .hint {
+            font-size: 1em;
+            color: #007BFF;
+            cursor: pointer;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: #FFF;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            width: 85%;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-size: 1em;
+            color: #FFF;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            margin-top: 5px;
+            box-sizing: border-box; /* 確保 padding 不會影響寬度 */
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+        .button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            background-color: #ffeb00;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title-container">
+                <div class="title">填寫領取人資訊</div>
+                <div class="subtitle">此表單資訊作為領取紀錄，不得領取兩張</div>
+            </div>
+            <!-- <div class="hint" onclick="window.location.href='/login'">已填寫過獲克力資訊？ 由此登入</div> -->
+        </div>
+        <div class="form-container">
+            <div class="form-group">
+                <label for="phone">電話號碼</label>
+                <input type="text" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="email">電子郵箱</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="line-id">LINE ID</label>
+                <input type="text" id="line-id" name="line-id">
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="agreement" name="agreement" checked>
+                <label for="agreement">同意上述資料提供獲客力及合作夥伴使用</label>
+            </div>
+            <button class="button" onclick="submitForm()">提交</button>
+        </div>
+    </div>
+    <script>
+        function submitForm() {
+            // 提交表單的邏輯
+            window.location.href = '/coupon';
+        }
+    </script>
+</body>
+</html>
