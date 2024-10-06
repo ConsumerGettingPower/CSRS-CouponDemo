@@ -66,6 +66,25 @@
             position: absolute; /* 新增 */
             bottom: 0; /* 新增 */
         }
+        .save-coupon {
+            /* text-align: center; */
+            margin-top: 20px;
+        }
+        .image_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .qrcode-image {
+            width: 200px;
+            height: auto;
+        }
+        .save-coupon-title {
+            font-size: 1.75em;
+            color: #FFF;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -78,7 +97,16 @@
             <div class="message">內容：此優惠卷可在任意分店使用，享受雙人份的干貝料理。</div>
             <div class="message">使用規則：每人限用一次，不可與其他優惠同時使用，需提前預約。</div>
         </div>
+        <div class="message-container">
+            <div class="title">長按儲存此優惠卷</div>
+            <div class="image_container">
+                <img src="cuponQrcode.png" alt="優惠卷QR碼" class="qrcode-image"> 
+
+            </div>
+        </div>
         <button class="button" onclick="confirmUseCoupon()">使用此優惠卷</button>
+        <!-- <div class="save-coupon">
+        </div> -->
         <script>
             function confirmUseCoupon() {
                 const userConfirmed = confirm("是否使用此優惠卷(限門市人員操作)");
