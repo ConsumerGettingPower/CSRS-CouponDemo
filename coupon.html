@@ -108,11 +108,29 @@
         <!-- <div class="save-coupon">
         </div> -->
         <script>
+            let isRedeemed = false; // 新增變數
+
             function confirmUseCoupon() {
+                if (isRedeemed) {
+                    alert("此優惠卷已兌換，無法再次使用。");
+                    return;
+                }
+
                 const userConfirmed = confirm("是否使用此優惠卷(限門市人員操作)");
                 if (userConfirmed) {
                     alert("優惠卷已使用");
-                    document.querySelector('.title').textContent += "（已兌換）"; // 新增
+                    document.querySelector('.title').textContent += "（已兌換）";
+                    isRedeemed = true; // 更新變數
+                    updateButtonState(); // 更新按鈕狀態
+                }
+            }
+
+            function updateButtonState() {
+                const button = document.querySelector('.button');
+                if (isRedeemed) {
+                    button.disabled = true; // 禁用按鈕
+                    button.style.backgroundColor = '#ccc'; // 改變按鈕背景顏色
+                    button.style.cursor = 'not-allowed'; // 改變游標樣式
                 }
             }
         </script>
